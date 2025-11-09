@@ -31,14 +31,14 @@ body {
   background-color: var(--main-background);
 }
 
-.banner {
+.banner-cadastro {
   background: url('../assets/imgs/papel-de-parede-cadastro.png');
   background-size: cover;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
 }
 
-.dados-cadastro-container {
+.dados-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -201,7 +201,7 @@ button {
   padding: 11.5px 5px;
   width: 200px;
   border-radius: 15px;
-  transition: all ease-in-out 0.3s;
+  transition: all ease 0.3s;
 }
 
 button:hover {
@@ -214,17 +214,97 @@ button:active {
   transform: translateY(0);
 }
 
-.button-container p {
-  color: var(--label-radio);
+.button-container span {
+  color: var(--secundary-text);
+  font-size: 1rem;
 }
 
-.button-container a {
+.button-container a,
+.login-input-container a {
   color: var(--default-links);
   font-weight: bold;
+  font-size: 1.1rem;
   transition: all ease-in-out 0.3s;
 }
 
-.button-container a:hover {
+.button-container a:hover,
+.login-input-container a:hover {
   color: var(--links-hover);
   text-decoration: none;
+}
+
+/*ESTILIZAÇÃO EXCLUSICA DA TELA DE LOGIN*/
+
+@keyframes roll {
+
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+
+  100% {
+    transform: translateX(calc(50vw - 50px)) rotate(360deg);
+  }
+}
+
+
+.banner-login {
+  background: url('../assets/imgs/papel-de-parede-login.png');
+  background-size: cover;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+h1 {
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+.login-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-input-container span {
+  font-size: 1rem;
+  color: var(--secundary-text);
+}
+
+.floating-login input {
+  width: 20vw;
+}
+
+.floating-input .fa-solid {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  font-size: 1.5rem;
+  color: var(--secundary-text);
+}
+
+.fa-eye {
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+
+.fa-eye:hover {
+  color: var(--primary);
+}
+
+.fa-eye:active {
+  opacity: 0.7;
+}
+
+.ball-container img {
+  width: 50px;
+  position: absolute;
+  top: 0;
+  animation: roll 10s linear infinite;
+}
+
+.ball-container {
+  border-bottom: solid 2px var(--primary);
+  width: 50vw;
+  position: relative;
+  padding: 20px 0;
 }
