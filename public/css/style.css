@@ -1,310 +1,396 @@
-:root {
-  --primary: #62D2A2;
-  --secundary: #1A2A3AA2;
-  --details: #3A8FB7;
-  --main-background: #F5F7F8;
-  --dark-background: #223645;
-  --main-text: #1E1E1E;
-  --secundary-text: #5F6B73;
-  --text-to-dark-background: #F3F3F3;
-  --borders-lines: #E1E5E8;
-  --default-links: #55C39E;
-  --links-hover: #3A8FB7;
-  --error-alert: #E63946;
-  --success-alert: #6EE7B7;
-  --label-radio: #393e46;
-  --gradient-button: linear-gradient(135deg, #62D2A2 0%, #3A8FB7 100%);
-  --gradient-button-hover: linear-gradient(135deg, #55C39E 0%, #2E7CA3 100%);
-}
+@keyframes imageEffect {
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+    0%,
+    100% {
+        scale: 1;
+        box-shadow: 4px 4px 8px 0 #ffffff;
+    }
+
+    50% {
+        scale: 1.1;
+        box-shadow: 4px 4px 8px 0 var(--primary);
+    }
 }
 
 body {
-  display: grid;
-  grid-template-columns: 35% 1fr;
-  height: 100vh;
-  background-color: var(--main-background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vw;
 }
 
-.banner-cadastro {
-  background: url('../assets/imgs/papel-de-parede-cadastro.png');
-  background-size: cover;
-  border-bottom-right-radius: 50px;
-  border-top-right-radius: 50px;
+header img {
+    width: 160px;
 }
 
-.dados-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px 15px;
-  height: 100%;
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    width: 100%;
+    background-color: var(--background-header);
+    box-shadow: 0 4px 4px 0 var(--primary);
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
 }
 
-.logo-container img {
-  width: 200px;
+li {
+    font-size: 20px;
 }
 
-.logo-container a {
-  text-decoration: none;
-  font-size: 18px;
-  color: var(--default-links);
-  display: flex;
-  font-weight: bold;
-  align-items: center;
-  gap: 6px;
-  padding: 10px;
-  position: relative;
+ul a {
+    text-decoration: none;
+    color: var(--main-text);
+    position: relative;
+    font-weight: bold;
+    padding-bottom: 8px;
+    transition: all ease-in-out 0.5s;
 }
 
-.logo-container a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  z-index: -1;
-  background: var(--gradient-button-hover);
-  border-radius: 15px;
-  transition: width ease-in-out 0.5s;
+ul a::after {
+    content: '';
+    width: 0;
+    position: absolute;
+    background: var(--gradient-button);
+    height: 2.5px;
+    bottom: 0;
+    left: 0;
+    transition: width ease-in-out 0.5s;
 }
 
-.logo-container a:hover::after {
-  width: 100%;
+ul a:hover::after {
+    width: 100%;
 }
 
-.logo-container a:hover {
-  color: var(--text-to-dark-background);
-  transition: ease-in-out .8s;
+header button {
+    border: none;
+    background: var(--gradient-button);
+    font-size: 20px;
+    color: var(--text-to-dark-background);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 12px 7px;
+    width: 200px;
+    border-radius: 15px;
+    transition: all ease-in-out 0.3s;
 }
 
-.logo-container a:active {
-  opacity: 0.7;
-  transition: ease-in-out .3s;
+header button:hover {
+    background: var(--gradient-button-hover);
 }
 
-.inputs-container {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
-  padding: 10px;
-  height: 100%;
+header button:active {
+    opacity: 0.8;
 }
 
-.pair-input-container {
-  display: flex;
-  gap: 3rem;
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(../assets/imgs/fundo-site-institucional.jpg);
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
 }
 
-.floating-input {
-  position: relative;
+.main-content {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.floating-input label {
-  color: var(--secundary-text);
-  font-size: 1.30rem;
-  position: absolute;
-  top: 15px;
-  left: 5px;
-  transition: all .5s;
-  pointer-events: none;
-}
-
-.floating-input input {
-  border: none;
-  border-bottom: solid 2px var(--borders-lines);
-  opacity: 100%;
-  outline: none;
-  padding: 10px 8px;
-  font-size: 1.15rem;
-  color: var(--secundary-text);
-  background: transparent;
-}
-
-.floating-input input:focus~label,
-.floating-input input:not(:placeholder-shown)~label {
-  top: -10px;
-  left: 0;
-  font-size: 1rem;
-  color: var(--success-alert);
-  font-weight: 500;
-}
-
-.floating-input input:focus,
-.floating-input input:not(:placeholder-shown) {
-  border-bottom: solid 2px var(--success-alert);
-}
-
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  border-bottom: solid 2px var(--primary);
-  padding-bottom: 2rem;
-}
-
-form p {
-  color: var(--secundary-text);
-  font-size: 18px;
-}
-
-.radios-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.radios-container label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--label-radio);
-  font-size: 16px;
-}
-
-.radios-container input {
-  border: var(--borders-lines);
-  cursor: pointer;
-  width: 15px;
-  height: 15px;
-}
-
-.button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 15px;
-}
-
-button {
-  border: none;
-  background: var(--gradient-button);
-  font-size: 22px;
-  color: var(--text-to-dark-background);
-  font-weight: bold;
-  cursor: pointer;
-  padding: 11.5px 5px;
-  width: 200px;
-  border-radius: 15px;
-  transition: all ease 0.3s;
-}
-
-button:hover {
-  background: var(--gradient-button-hover);
-  transform: translateY(-5px);
-}
-
-button:active {
-  opacity: 0.8;
-  transform: translateY(0);
-}
-
-.button-container span {
-  color: var(--secundary-text);
-  font-size: 1rem;
-}
-
-.button-container a,
-.login-input-container a {
-  color: var(--default-links);
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: all ease-in-out 0.3s;
-}
-
-.button-container a:hover,
-.login-input-container a:hover {
-  color: var(--links-hover);
-  text-decoration: none;
-}
-
-/*ESTILIZAÇÃO EXCLUSICA DA TELA DE LOGIN*/
-
-@keyframes roll {
-
-  0% {
-    transform: translateX(0) rotate(0deg);
-  }
-
-  100% {
-    transform: translateX(calc(50vw - 50px)) rotate(360deg);
-  }
-}
-
-
-.banner-login {
-  background: url('../assets/imgs/papel-de-parede-login.png');
-  background-size: cover;
-  border-bottom-right-radius: 50px;
-  border-top-right-radius: 50px;
+.text-container {
+    text-align: center;
+    color: var(--text-to-dark-background);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
 h1 {
-  color: var(--primary);
-  margin-bottom: 2rem;
+    font-size: 45px;
 }
 
-.login-input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.text-container p {
+    font-size: 25px
 }
 
-.login-input-container span {
-  font-size: 1rem;
-  color: var(--secundary-text);
+.main-buttons-container {
+    display: flex;
+    gap: 1rem;
 }
 
-.floating-login input {
-  width: 20vw;
+.comments-button {
+    border: none;
+    width: 220px;
+    background: var(--gradient-button);
+    cursor: pointer;
+    color: var(--text-to-dark-background);
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px 5px;
+    border-radius: 15px;
+    transition: all ease 0.3s;
 }
 
-.floating-input .fa-solid {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
-  font-size: 1.5rem;
-  color: var(--secundary-text);
+.games-button {
+    border: solid 2px var(--text-to-dark-background);
+    width: 220px;
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-to-dark-background);
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px 5px;
+    border-radius: 15px;
+    transition: all ease 0.3s;
 }
 
-.fa-eye {
-  cursor: pointer;
-  transition: all ease-in-out 0.3s;
+.comments-button:hover,
+.games-button:hover {
+    transform: scale(1.05);
 }
 
-.fa-eye:hover {
-  color: var(--primary);
+.comments-button:active,
+.games-button:active {
+    transform: scale(1);
+    opacity: 0.8;
 }
 
-.fa-eye:active {
-  opacity: 0.7;
+.story-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    background-color: var(--main-background);
 }
 
-.ball-container img {
-  width: 50px;
-  position: absolute;
-  top: 0;
-  animation: roll 10s linear infinite;
+.banner-image {
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../assets/imgs/fundo-historias.jpg);
 }
 
-.ball-container {
-  border-bottom: solid 2px var(--primary);
-  width: 50vw;
-  position: relative;
-  padding: 20px 0;
+.banner-image img {
+    width: 420px;
+    height: 460px;
+    border-radius: 10px;
+    animation: imageEffect ease-in-out 3s infinite;
+}
+
+.history-description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.history-description-container div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.history-description-container div img {
+    width: 50%;
+}
+
+.history-description-container h2 {
+    font-size: 35px;
+}
+
+#games-section {
+    background-image: url(../assets/imgs/fundo-games.png);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#games-section h2 {
+    position: absolute;
+    top: 0;
+    margin-top: 2rem;
+    font-size: 35px;
+    color: var(--text-to-dark-background);
+    padding: 1rem;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.game-card {
+    background-color: var(--main-background);
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 2rem;
+    padding-bottom: 1.5rem;
+}
+
+.game-card img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+}
+
+.game-card div {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.game-card h4 {
+    font-size: 25px;
+    color: var(--button-games);
+}
+
+.game-card p {
+    text-align: justify;
+    color: var(--secundary-text);
+}
+
+.game-card button {
+    border: none;
+    color: var(--text-to-dark-background);
+    background-color: var(--button-games);
+    width: 150px;
+    border-radius: 10px;
+    padding: 8px 5px;
+    margin-left: 1rem;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.game-card button:hover {
+    opacity: 0.8;
+    transform: translateY(-5px);
+}
+
+.game-card button:active {
+    opacity: 0.6;
+    transform: translateY(0);
+}
+
+#comments-section {
+    background-color: var(--main-background);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#comments-section h2 {
+    position: absolute;
+    top: 0;
+    margin-top: 1.5rem;
+    font-size: 35px;
+    color: var(--main-text);
+}
+
+.comments-card {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-image: url(../assets/imgs/fundo-card-comentarios.png);
+    border-radius: 10px;
+    padding: 0.8rem;
+}
+
+.comments-card img {
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+.comments-card q {
+    color: var(--text-to-dark-background);
+    font-weight: bold;
+    text-align: justify;
+}
+
+.comments-card div {
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.comments-card h4 {
+    color: var(--success-alert);
+    font-size: 20px;
+}
+
+.comments-card span {
+    color: var(--text-to-dark-background);
+    font-size: 17px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 1.2rem;
+    align-items: center;
+    background-color: var(--footer-background);
+    height: 100px;
+}
+
+footer p {
+    color: var(--text-to-dark-background);
+    font-weight: bold;
+    border-right: solid 2px #ffffff;
+    padding-right: 8px;
+}
+
+footer div {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+footer img {
+    filter: invert(100%);
+    width: 70px;
+    cursor: pointer;
+}
+
+.logo-linkedin {
+    width: 50px;
+}
+
+.logo-whatsapp {
+    width: 55px;
 }

@@ -10,113 +10,148 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/estilo.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/globalStyles.css">
   <link rel="icon" href="./assets/icon/favicon2.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <body>
   <header>
-    <img src="" alt="Logo NicoStadium">
+    <img src="./assets/imgs/logo.png" alt="Logo NicoStadium">
 
     <nav>
       <ul>
         <li>
-          <a href="">Início</a>
+          <a href="#home">Início</a>
         </li>
 
         <li>
-          <a href="">História</a>
+          <a href="#journey">História</a>
         </li>
 
         <li>
-          <a href="">Conteúdo</a>
+          <a href="#games-section">Conteúdo</a>
         </li>
 
         <li>
-          <a href="">Depoimentos</a>
+          <a href="#comments-section">Depoimentos</a>
         </li>
 
       </ul>
     </nav>
 
-    <div class="buttons-container">
-      <button>Entrar</button>
-
-      <button>Cadastrar</button>
-    </div>
+    <a href="./login.html">
+      <button>Acesse sua conta</button>
+    </a>
   </header>
 
-  <main>
-    <h1>
-      Onde o futebol e a tecnologia
-      <br>
-      se encontram!
-    </h1>
+  <main id="home">
+    <div class="main-content">
+      <div class="text-container">
+        <h1>
+          Onde o futebol e a tecnologia
+          <br>
+          se encontram!
+        </h1>
 
-    <p>Sua paixão por futebol com um toque <br> tecnológico!</p>
+        <p>Sua paixão por futebol com um toque <br> tecnológico!</p>
+      </div>
 
-    <div class="main-buttons-container">
-      <button>Comentários</button>
+      <div class="main-buttons-container">
+        <a href="#comments-section">
+          <button class="comments-button">Comentários</button>
+        </a>
 
-      <button>Nossos jogos</button>
+        <a href="#games-section">
+          <button class="games-button">Nossos jogos</button>
+        </a>
+      </div>
     </div>
   </main>
 
-  <section class="start-section">
+  <section id="journey" class="story-section">
     <div class="history-description-container">
-      <h2>O começo de tudo!</h2>
+      <div>
+        <h2>O começo de tudo!</h2>
+        <img src="./assets/imgs/linha-textos.png" alt="">
+      </div>
 
       <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
+        iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
+        iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
         iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
       </p>
     </div>
 
     <div class="banner-image acm">
-      <img src="" alt="">
+      <img src="./assets/imgs/nicollas-acm.jpeg" alt="">
     </div>
   </section>
 
-  <section class="sccp-section">
+  <section class="story-section">
     <div class="banner-image sccp">
-      <img src="" alt="">
+      <img src="./assets/imgs/nicollas-chute-inicial.jpeg" alt="">
     </div>
 
     <div class="history-description-container">
-      <h2>Chute Inicial Guaianases</h2>
+      <div>
+        <h2>Chute Inicial Guaianases</h2>
+        <img src="./assets/imgs/linha-textos.png" alt="">
+      </div>
 
       <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
+        iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
+        iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
         iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
       </p>
     </div>
   </section>
 
-  <section class="mvi-section">
+  <section class="story-section">
     <div class="history-description-container">
-      <h2>Meninos da Vila Itaquera</h2>
+      <div>
+        <h2>Meninos da Vila Itaquera</h2>
+        <img src="./assets/imgs/linha-textos.png" alt="">
+      </div>
 
       <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
+        iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
+        iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
         iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
       </p>
     </div>
 
     <div class="banner-image mvi">
-      <img src="" alt="">
+      <img src="./assets/imgs/nicollas-mvi.jpeg" alt="">
     </div>
   </section>
 
-  <section class="palestino-section">
+  <section class="story-section">
     <div class="banner-image palestino">
-      <img src="" alt="">
+      <img src="./assets/imgs/nicollas-palestino.jpeg" alt="">
     </div>
 
     <div class="history-description-container">
-      <h2>Palestino</h2>
+      <div>
+        <h2>Palestino</h2>
+        <img src="./assets/imgs/linha-textos.png" alt="">
+      </div>
 
       <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
+        iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
+        iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium enim necessitatibus totam ea voluptate
         iure, odio ipsam vel perferendis inventore magnam fuga ut ipsum itaque qui quis dignissimos eius nesciunt?
       </p>
@@ -128,37 +163,47 @@
 
     <div class="cards-container">
       <div class="game-card">
-        <img src="" alt="">
+        <img src="./assets/imgs/fundo-historias.jpg" alt="">
 
-        <h4>Jogo 1</h4>
+        <div>
+          <h4>Jogo 1</h4>
 
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum ducimus quas laudantium maiores eaque
-          voluptas vel, voluptatibus rerum accusamus at qui dignissimos asperiores fugit, nobis est expedita, illum enim
-          suscipit!</p>
-
-        <button>Saiba mais</button>
-      </div>
-
-      <div class="game-card">
-        <img src="" alt="">
-
-        <h4>Jogo 2</h4>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit excepturi quia amet eum vero eaque, commodi
-          odio omnis veniam assumenda repellat veritatis, possimus architecto totam obcaecati quae? Beatae, voluptatum
-          aliquam!</p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum ducimus quas laudantium maiores eaque
+            voluptas vel, voluptatibus rerum accusamus at qui dignissimos asperiores fugit, nobis est expedita, illum
+            enim
+            suscipit!</p>
+        </div>
 
         <button>Saiba mais</button>
       </div>
 
       <div class="game-card">
-        <img src="" alt="">
+        <img src="./assets/imgs/fundo-historias.jpg" alt="">
 
-        <h4>Jogo 3</h4>
+        <div>
+          <h4>Jogo 2</h4>
 
-        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, nesciunt? Quam, placeat? Vero qui dolore
-          amet voluptatum illum rerum veritatis ducimus vitae, commodi aspernatur quis eligendi dignissimos est tempora
-          facilis!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit excepturi quia amet eum vero eaque,
+            commodi
+            odio omnis veniam assumenda repellat veritatis, possimus architecto totam obcaecati quae? Beatae, voluptatum
+            aliquam!</p>
+        </div>
+
+        <button>Saiba mais</button>
+      </div>
+
+      <div class="game-card">
+        <img src="./assets/imgs/fundo-historias.jpg" alt="">
+
+        <div>
+          <h4>Jogo 3</h4>
+
+          <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, nesciunt? Quam, placeat? Vero qui
+            dolore
+            amet voluptatum illum rerum veritatis ducimus vitae, commodi aspernatur quis eligendi dignissimos est
+            tempora
+            facilis!</p>
+        </div>
 
         <button>Saiba mais</button>
       </div>
@@ -170,37 +215,43 @@
 
     <div class="cards-container">
       <div class="comments-card">
-        <img src="" alt="">
+        <img src="./assets/imgs/bola-de-futebol.png" alt="">
 
         <q>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti omnis, deleniti accusamus consectetur quos
           nihil inventore non alias impedit obcaecati nesciunt, aliquid tenetur quaerat ad voluptatibus hic perspiciatis
           tempore magni.</q>
 
-        <h4>Will Smith</h4>
+        <div>
+          <h4>Will Smith</h4>
 
-        <span>Corinthiano</span>
+          <span>Corinthiano</span>
+        </div>
       </div>
       <div class="comments-card">
-        <img src="" alt="">
+        <img src="./assets/imgs/bola-de-futebol.png" alt="">
 
         <q>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti omnis, deleniti accusamus consectetur quos
           nihil inventore non alias impedit obcaecati nesciunt, aliquid tenetur quaerat ad voluptatibus hic perspiciatis
           tempore magni.</q>
 
-        <h4>Will Smith</h4>
+        <div>
+          <h4>Will Smith</h4>
 
-        <span>Corinthiano</span>
+          <span>Corinthiano</span>
+        </div>
       </div>
       <div class="comments-card">
-        <img src="" alt="">
+        <img src="./assets/imgs/bola-de-futebol.png" alt="">
 
         <q>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti omnis, deleniti accusamus consectetur quos
           nihil inventore non alias impedit obcaecati nesciunt, aliquid tenetur quaerat ad voluptatibus hic perspiciatis
           tempore magni.</q>
 
-        <h4>Will Smith</h4>
+        <div>
+          <h4>Will Smith</h4>
 
-        <span>Corinthiano</span>
+          <span>Corinthiano</span>
+        </div>
       </div>
     </div>
   </section>
@@ -209,11 +260,11 @@
     <p>©2025 NicoStadium. Todos os direitos reservados</p>
 
     <div class="social-media-container">
-      <img src="" alt="Logo WhatsApp">
+      <img src="./assets/imgs/whatsapp.png" alt="Logo WhatsApp" class="logo-whatsapp">
 
-      <img src="" alt="Logo Instagram">
+      <img src="./assets/imgs/instagram.png" alt="Logo Instagram" class="logo-instagram">
 
-      <img src="" alt="Logo LinkedIn">
+      <img src="./assets/imgs/linkedin.png" alt="Logo LinkedIn" class="logo-linkedin">
     </div>
   </footer>
 </body>
