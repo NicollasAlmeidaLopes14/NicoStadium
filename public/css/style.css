@@ -51,7 +51,6 @@ ul a {
     position: relative;
     font-weight: bold;
     padding-bottom: 8px;
-    transition: all ease-in-out 0.5s;
 }
 
 ul a::after {
