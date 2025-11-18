@@ -21,70 +21,86 @@
   <div class="banner-cadastro"></div>
 
   <div class="dados-container">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
-      </div>
+    <div class="logo-container">
+      <a href="./i.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        Voltar
+      </a>
 
-      <div class="logo-container">
-        <a href="./i.html">
-          <i class="fa-solid fa-arrow-left"></i>
-          Voltar
-        </a>
-
-        <img src="./assets/imgs/logo.png" alt="Logo NicoStadium">
-      </div>
-
-      <div class="inputs-container">
-        <div class="pair-input-container">
-          <div class="floating-input">
-            <input placeholder="" type="text" id="name_input">
-            <label for="name_input">Nome completo</label>
-          </div>
-
-          <div class="floating-input">
-            <input placeholder="" type="text" id="email_input">
-            <label for="email_input">E-mail</label>
-          </div>
-        </div>
-
-        <div class="pair-input-container">
-          <div class="floating-input">
-            <input placeholder="" type="text" id="cpf_input">
-            <label for="cpf_input">CPF</label>
-          </div>
-
-          <div class="floating-input">
-            <input placeholder="" type="text" id="cellphone_input">
-            <label for="cellphone_input">Telefone</label>
-          </div>
-        </div>
-
-        <div class="pair-input-container">
-          <div class="floating-input">
-            <input placeholder="" type="password" id="password_input">
-            <label for="password_input">Senha</label>
-          </div>
-
-          <div class="floating-input">
-            <input placeholder="" type="password" id="confirm_password_input">
-            <label for="confirm-password_input">Confirme a senha</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="button-container">
-        <button onclick="cadastrar()">Cadastrar</button>
-
-        <span>Já possui conta? <a href="./login.html">Faça login!</a></span>
-      </div>
-
-      <div id="div_aguardar" class="loading-div">
-        <img src="./assets/circle-loading.gif" id="loading-gif" />
-      </div>
-
-      <div id="div_erros_login"></div>
+      <img src="./assets/imgs/logo.png" alt="Logo NicoStadium">
     </div>
+
+    <div class="inputs-container">
+      <div class="pair-input-container">
+        <div class="floating-input">
+          <input placeholder="" type="text" id="name_input">
+          <label for="name_input">Nome completo</label>
+        </div>
+
+        <div class="floating-input">
+          <input placeholder="" type="text" id="email_input">
+          <label for="email_input">E-mail</label>
+        </div>
+      </div>
+
+      <div class="pair-input-container">
+        <div class="floating-input">
+          <input placeholder="" type="text" id="cpf_input">
+          <label for="cpf_input">CPF</label>
+        </div>
+
+        <div class="floating-input">
+          <input placeholder="" type="text" id="cellphone_input">
+          <label for="cellphone_input">Telefone</label>
+        </div>
+      </div>
+
+      <div class="pair-input-container">
+        <div class="floating-input">
+          <input placeholder="" type="password" id="password_input">
+          <label for="password_input">Senha</label>
+        </div>
+
+        <div class="floating-input">
+          <input placeholder="" type="password" id="confirm_password_input">
+          <label for="confirm-password_input">Confirme a senha</label>
+        </div>
+      </div>
+
+
+      <form>
+        <p>Gênero</p>
+
+        <div id="radios_container">
+          <label>
+            <input type="radio" name="gender_option" value="Feminino">
+            Feminino
+          </label>
+
+          <label>
+            <input type="radio" name="gender_option" value="Masculino">
+            Masculino
+          </label>
+
+          <label>
+            <input type="radio" name="gender_option" value="Outro">
+            Outro
+          </label>
+
+          <label>
+            <input type="radio" name="gender_option" value="Prefiro não informar">
+            Prefiro não informar
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <div class="button-container">
+      <button onclick="cadastrar()">Cadastrar</button>
+
+      <span>Já possui conta? <a href="./login.html">Faça login!</a></span>
+    </div>
+  </div>
 </body>
 
 </html>
@@ -101,6 +117,16 @@
     var cellphone = cellphone_input.value;
     var password = password_input.value;
     var passwordConfirmation = confirm_password_input.value;
+    var gender = document.getElementsByName('gender_option')
+
+    for (var i = 0; i < gender.length; i++) {
+
+      if (gender[i].checked) {
+        var checkedGender = gender[i].value;
+
+        break
+      }
+    }
 
     // Verificando se há algum campo em branco
     if (
@@ -109,7 +135,8 @@
       cpf == "" ||
       cellphone == "" ||
       password == "" ||
-      passwordConfirmation == ""
+      passwordConfirmation == "" ||
+      gender == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -134,7 +161,8 @@
         emailServer: email,
         cpfServer: cpf,
         cellphoneServer: cellphone,
-        passwordServer: password
+        passwordServer: password,
+        genderServer: checkedGender
       }),
     })
       .then(function (resposta) {

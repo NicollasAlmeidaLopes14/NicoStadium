@@ -58,6 +58,7 @@ function cadastrar(req, res) {
     var cpf = req.body.cpfServer;
     var cellphone = req.body.cellphoneServer;
     var password = req.body.passwordServer;
+    var gender = req.body.genderServer;
 
 
     // Faça as validações dos valores
@@ -71,10 +72,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu CPF está undefined!");
     } else if (cellphone == undefined) {
         res.status(400).send("Seu telefone está undefined!");
+    } else if (gender == undefined) {
+        res.status(400).send("Seu gênero está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(name, email, password, cpf, cellphone)
+        usuarioModel.cadastrar(name, email, cpf, cellphone, password, gender)
             .then(
                 function (resultado) {
                     res.json(resultado);
