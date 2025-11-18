@@ -17,117 +17,99 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body onload="listar()">
+<body>
   <div class="banner-cadastro"></div>
 
   <div class="dados-container">
-    <div class="logo-container">
-      <a href="./index.html">
-        <i class="fa-solid fa-arrow-left"></i>
-        Voltar
-      </a>
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
 
-      <img src="../public/assets/imgs/logo.png" alt="Logo NicoStadium">
-    </div>
+      <div class="logo-container">
+        <a href="./i.html">
+          <i class="fa-solid fa-arrow-left"></i>
+          Voltar
+        </a>
 
-    <div class="inputs-container">
-      <div class="pair-input-container">
-        <div class="floating-input">
-          <input placeholder="" type="text" id="name-input">
-          <label for="name-input">Nome completo</label>
+        <img src="./assets/imgs/logo.png" alt="Logo NicoStadium">
+      </div>
+
+      <div class="inputs-container">
+        <div class="pair-input-container">
+          <div class="floating-input">
+            <input placeholder="" type="text" id="name_input">
+            <label for="name_input">Nome completo</label>
+          </div>
+
+          <div class="floating-input">
+            <input placeholder="" type="text" id="email_input">
+            <label for="email_input">E-mail</label>
+          </div>
         </div>
 
-        <div class="floating-input">
-          <input placeholder="" type="text" id="email-input">
-          <label for="email-input">E-mail</label>
+        <div class="pair-input-container">
+          <div class="floating-input">
+            <input placeholder="" type="text" id="cpf_input">
+            <label for="cpf_input">CPF</label>
+          </div>
+
+          <div class="floating-input">
+            <input placeholder="" type="text" id="cellphone_input">
+            <label for="cellphone_input">Telefone</label>
+          </div>
+        </div>
+
+        <div class="pair-input-container">
+          <div class="floating-input">
+            <input placeholder="" type="password" id="password_input">
+            <label for="password_input">Senha</label>
+          </div>
+
+          <div class="floating-input">
+            <input placeholder="" type="password" id="confirm_password_input">
+            <label for="confirm-password_input">Confirme a senha</label>
+          </div>
         </div>
       </div>
 
-      <div class="pair-input-container">
-        <div class="floating-input">
-          <input placeholder="" type="text" id="cpf-input">
-          <label for="cpf-input">CPF</label>
-        </div>
+      <div class="button-container">
+        <button onclick="cadastrar()">Cadastrar</button>
 
-        <div class="floating-input">
-          <input placeholder="" type="text" id="cellphone-input">
-          <label for="cellphone-input">Telefone</label>
-        </div>
+        <span>Já possui conta? <a href="./login.html">Faça login!</a></span>
       </div>
 
-      <div class="pair-input-container">
-        <div class="floating-input">
-          <input placeholder="" type="password" id="password-input">
-          <label for="password-input">Senha</label>
-        </div>
-
-        <div class="floating-input">
-          <input placeholder="" type="password" id="confirm-password-input">
-          <label for="confirm-password-input">Confirme a senha</label>
-        </div>
+      <div id="div_aguardar" class="loading-div">
+        <img src="./assets/circle-loading.gif" id="loading-gif" />
       </div>
 
-      <form>
-        <p>Gênero</p>
-
-        <div class="radios-container">
-          <label>
-            <input type="radio" name="genero">
-            Feminino
-          </label>
-
-          <label>
-            <input type="radio" name="genero">
-            Masculino
-          </label>
-
-          <label>
-            <input type="radio" name="genero">
-            Outro
-          </label>
-
-          <label>
-            <input type="radio" name="genero">
-            Prefiro não informar
-          </label>
-        </div>
-      </form>
+      <div id="div_erros_login"></div>
     </div>
-
-    <div class="button-container">
-      <button>Cadastrar</button>
-
-      <span>Já possui conta? <a href="./login.html">Faça login!</a></span>
-    </div>
-  </div>
 </body>
 
 </html>
 
 <script>
-
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
-
   function cadastrar() {
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var name = name_input.value;
+    var email = email_input.value;
+    var cpf = cpf_input.value;
+    var cellphone = cellphone_input.value;
+    var password = password_input.value;
+    var passwordConfirmation = confirm_password_input.value;
 
     // Verificando se há algum campo em branco
     if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      name == "" ||
+      email == "" ||
+      cpf == "" ||
+      cellphone == "" ||
+      password == "" ||
+      passwordConfirmation == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -139,19 +121,6 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -161,10 +130,11 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        nameServer: name,
+        emailServer: email,
+        cpfServer: cpf,
+        cellphoneServer: cellphone,
+        passwordServer: password
       }),
     })
       .then(function (resposta) {
@@ -192,26 +162,6 @@
       });
 
     return false;
-  }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
   }
 
   function sumirMensagem() {
