@@ -21,6 +21,12 @@
   <div class="banner-cadastro"></div>
 
   <div class="dados-container">
+    <div class="alerta_erro">
+      <div class="card_erro" id="cardErro">
+        <span id="mensagem_erro"></span>
+      </div>
+    </div>
+
     <div class="logo-container">
       <a href="./i.html">
         <i class="fa-solid fa-arrow-left"></i>
@@ -63,7 +69,7 @@
 
         <div class="floating-input">
           <input placeholder="" type="password" id="confirm_password_input">
-          <label for="confirm-password_input">Confirme a senha</label>
+          <label for="confirm_password_input">Confirme a senha</label>
         </div>
       </div>
 
@@ -99,6 +105,10 @@
       <button onclick="cadastrar()">Cadastrar</button>
 
       <span>Já possui conta? <a href="./login.html">Faça login!</a></span>
+    </div>
+
+    <div id="div_aguardar" class="loading-div">
+      <img src="./assets/circle-loading.gif" id="loading-gif" />
     </div>
   </div>
 </body>

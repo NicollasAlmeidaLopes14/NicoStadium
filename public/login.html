@@ -21,6 +21,12 @@
     <div class="banner-login"></div>
 
     <div class="dados-container">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+
         <div class="logo-container">
             <a href="./index.html">
                 <i class="fa-solid fa-arrow-left"></i>
@@ -33,19 +39,16 @@
         <h1>Acesse sua conta</h1>
 
         <div class="inputs-container">
-            <div class="login-input-container">
-                <div class="floating-input">
-                    <input type="text" id="cpf-input" placeholder="">
-                    <label for="cpf-input">CPF</label>
-                    <i class="fa-solid fa-user"></i>
-                </div>
-                <span>Entrar com o e-mail</span>
+            <div class="floating-input">
+                <input type="text" id="email_input" placeholder="">
+                <label for="email_input">E-mail</label>
+                <i class="fa-solid fa-user"></i>
             </div>
 
             <div class="login-input-container">
                 <div class="floating-input">
-                    <input type="password" id="password-input" placeholder="">
-                    <label for="password-input">Senha</label>
+                    <input type="password" id="password_input" placeholder="">
+                    <label for="password_input">Senha</label>
                     <i class="fa-solid fa-eye"></i>
                 </div>
                 <span>Esqueceu a senha? <a href="">Clique aqui!</a></span>
@@ -55,10 +58,14 @@
                 <img src="./assets/imgs/bola-de-futebol.png" alt="">
             </div>
 
-            <div class="button-container">
-                <button>Entrar</button>
+            <div class="button-container">      
+                <button onclick="entrar()">Entrar</button>
 
                 <span>Não possui conta? <a href="./cadastro.html">Cadastre-se</a></span>
+            </div>
+
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/circle-loading.gif" id="loading-gif">
             </div>
         </div>
     </div>
@@ -70,10 +77,10 @@
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var email = email_input.value;
+        var password = password_input.value;
 
-        if (emailVar == "" || senhaVar == "") {
+        if (email == "" || password == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();
@@ -83,8 +90,8 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+        console.log("FORM LOGIN: ", email);
+        console.log("FORM SENHA: ", password);
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -92,8 +99,8 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                emailServer: email,
+                passwordServer: password
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -105,12 +112,11 @@
                     console.log(json);
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.NOME_USUARIO = json.nomeCompleto;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "./dashboard/pagina-inicial.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
