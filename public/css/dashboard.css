@@ -1,0 +1,246 @@
+body {
+  background-color: #e1e5e8;
+}
+
+aside {
+  background-color: var(--nav-dashboard);
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1.2rem;
+  align-items: center;
+}
+
+.user_data_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#user_picture {
+  width: 80px;
+}
+
+#user_name_span {
+  font-size: 35px;
+  font-weight: bold;
+  color: var(--text-to-dark-background);
+}
+
+#user_email_span {
+  font-size: 22px;
+  color: var(--text-to-dark-background);
+}
+
+ul {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  list-style: none;
+}
+
+a {
+  display: flex;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-to-dark-background);
+  font-weight: bold;
+  align-items: center;
+  font-size: 25px;
+  padding: 0.6rem;
+  border-radius: 15px;
+  transition: background-color, ease-in-out 0.3s,
+    color ease-in-out 0.3s,
+    opacity ease 0.3s;
+}
+
+a:hover {
+  background-color: var(--text-to-dark-background);
+  color: var(--nav-dashboard);
+}
+
+a:active {
+  opacity: 0.7;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  padding-left: 12rem;
+  height: 100vh;
+  justify-content: space-evenly;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  width: 60%;
+}
+
+.kpis-conatiner {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.hit-rate-kpi {
+  background-color: var(--nav-dashboard);
+  border-radius: 15px;
+  border-left: solid 5px var(--text-to-dark-background);
+  text-align: center;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-to-dark-background);
+  gap: 1rem;
+  padding: 1rem;
+  transition: transform ease 0.3s, box-shadow ease-in-out 0.3s;
+}
+
+.hit-rate-kpi:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 3px 5px 0px var(--secundary-text);
+}
+
+.kpi-title {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+#utilization_rate_span,
+#wrong_guess_span,
+#right_guess_span {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.guesses-kpi {
+  display: flex;
+  background-color: var(--main-background);
+  padding: 1rem;
+  border-radius: 15px;
+  border-left: solid 5px var(--nav-dashboard);
+  gap: 1.5rem;
+  align-items: center;
+  transition: transform ease 0.3s, box-shadow ease-in-out 0.3s;
+}
+
+.guesses-kpi:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 3px 5px 0px var(--secundary-text);
+}
+
+.kpi-wrong-guesses-title,
+.kpi-right-guesses-title {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.wrong_guess_container {
+  color: var(--error-alert);
+}
+
+.right-guess-container {
+  color: var(--nav-dashboard);
+}
+
+.guesses-kpi div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-wrapper {
+  height: 400px;
+  width: 750px;
+  text-align: start;
+  background-color: var(--main-background);
+  padding: 2rem 2.5rem 3rem;
+  border-radius: 15px;
+  position: relative;
+}
+
+.chart-wrapper img {
+  width: 180px;
+  position: absolute;
+  right: 0;
+  top: -38px;
+}
+
+h1 {
+  color: var(--nav-dashboard);
+}
+
+canvas {
+  height: 100%;
+}
+
+.last-guess-container {
+  background-color: var(--main-background);
+  height: 90%;
+  /* width: 300px; */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 15px;
+}
+
+.match-wrapper {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: 15px;
+  border-left: solid 5px var(--nav-dashboard);
+  transition: transform ease 0.3s, box-shadow ease-in-out 0.3s;
+}
+
+.match-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 4px 3px 5px 0px var(--secundary-text);
+}
+
+.match-wrapper div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.match-wrapper div span {
+  font-size: 35px;
+  font-weight: 800;
+  color: var(--main-text);
+}
+
+.palmeiras-logo,
+.barcelona-logo,
+.psg-logo {
+  width: 70px;
+}
+
+.corinthians-logo,
+.real-madrid-logo,
+.marseille-logo {
+  width: 60px;
+}
+
+.versus {
+  width: 80px;
+}
+
+h2 {
+  color: var(--nav-dashboard);
+  font-size: 30px;
+}
