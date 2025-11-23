@@ -13,15 +13,16 @@ body {
     display: grid;
     grid-template-columns: 35% 1fr;
     height: 100vh;
-    background-color: var(--main-background);
+    background: var(--background-gradient);
     animation: fadeIn 1s ease-in-out forwards;
 }
 
 .banner-login {
-    background: url('../assets/imgs/papel-de-parede-login.png');
+    background: url('../assets/imgs/banner-login.png');
     background-size: cover;
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
+    border-right: solid 4px var(--primary);
 }
 
 .dados-container {
@@ -41,13 +42,13 @@ body {
 }
 
 .logo-container img {
-    width: 200px;
+    width: 240px;
 }
 
 .logo-container a {
     text-decoration: none;
     font-size: 18px;
-    color: var(--default-links);
+    color: var(--link-default);
     display: flex;
     font-weight: bold;
     align-items: center;
@@ -64,7 +65,7 @@ body {
     left: 0;
     height: 100%;
     z-index: -1;
-    background: var(--gradient-button-hover);
+    background: var(--button-gradient-hover);
     border-radius: 15px;
     transition: width ease-in-out 0.5s;
 }
@@ -74,7 +75,7 @@ body {
 }
 
 .logo-container a:hover {
-    color: var(--text-to-dark-background);
+    color: var(--button-text);
     transition: ease-in-out .8s;
 }
 
@@ -97,7 +98,7 @@ body {
 }
 
 .floating-input label {
-    color: var(--secundary-text);
+    color: var(--text-main);
     font-size: 1.30rem;
     position: absolute;
     top: 15px;
@@ -108,12 +109,12 @@ body {
 
 .floating-input input {
     border: none;
-    border-bottom: solid 2px var(--borders-lines);
+    border-bottom: solid 2px var(--border-color);
     opacity: 100%;
     outline: none;
     padding: 10px 8px;
     font-size: 1.15rem;
-    color: var(--secundary-text);
+    color: var(--text-main);
     width: 20vw;
     background: transparent;
 }
@@ -123,13 +124,13 @@ body {
     top: -10px;
     left: 0;
     font-size: 1rem;
-    color: var(--success-alert);
+    color: var(--input-border-focus);
     font-weight: 500;
 }
 
 .floating-input input:focus,
 .floating-input input:not(:placeholder-shown) {
-    border-bottom: solid 2px var(--success-alert);
+    border-bottom: solid 2px var(--input-border-focus);
 }
 
 h1 {
@@ -145,7 +146,7 @@ h1 {
 
 .login-input-container span {
     font-size: 1rem;
-    color: var(--secundary-text);
+    color: var(--text-main);
 }
 
 .floating-input .fa-solid {
@@ -153,7 +154,7 @@ h1 {
     right: 0;
     bottom: 10px;
     font-size: 1.5rem;
-    color: var(--secundary-text);
+    color: var(--icon-color);
 }
 
 .fa-eye {
@@ -162,7 +163,7 @@ h1 {
 }
 
 .fa-eye:hover {
-    color: var(--primary);
+    color: var(--text-secondary);
 }
 
 .fa-eye:active {
@@ -178,9 +179,9 @@ h1 {
 
 button {
     border: none;
-    background: var(--gradient-button);
+    background: var(--button-gradient);
     font-size: 22px;
-    color: var(--text-to-dark-background);
+    color: var(--button-text);
     font-weight: bold;
     cursor: pointer;
     padding: 11.5px 5px;
@@ -190,7 +191,7 @@ button {
 }
 
 button:hover {
-    background: var(--gradient-button-hover);
+    background: var(--button-gradient-hover);
     transform: translateY(-5px);
 }
 
@@ -200,13 +201,13 @@ button:active {
 }
 
 .button-container span {
-    color: var(--secundary-text);
+    color: var(--text-main);
     font-size: 1rem;
 }
 
 .button-container a,
 .login-input-container a {
-    color: var(--default-links);
+    color: var(--link-default);
     font-weight: bold;
     font-size: 1.1rem;
     transition: all ease-in-out 0.3s;
@@ -214,7 +215,7 @@ button:active {
 
 .button-container a:hover,
 .login-input-container a:hover {
-    color: var(--links-hover);
+    color: var(--link-hover);
     text-decoration: none;
 }
 

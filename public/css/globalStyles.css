@@ -1,25 +1,44 @@
 :root {
-    --primary: #62D2A2;
-    --secundary: #1A2A3AA2;
-    --details: #3A8FB7;
-    --main-background: #F5F7F8;
-    --dark-background: #223645;
-    --main-text: #1E1E1E;
-    --secundary-text: #5F6B73;
-    --text-to-dark-background: #F3F3F3;
-    --borders-lines: #E1E5E8;
-    --default-links: #55C39E;
-    --links-hover: #3A8FB7;
-    --error-alert: #E63946;
-    --success-alert: #6EE7B7;
-    --label-radio: #393e46;
-    --gradient-button: linear-gradient(135deg, #62D2A2 0%, #3A8FB7 100%);
-    --gradient-button-hover: linear-gradient(135deg, #55C39E 0%, #2E7CA3 100%);
-    --background-header: rgb(245, 247, 248, 0.5);
-    --nav-dashboard: #2DBB57;
-    --footer-background: rgba(26, 42, 58, 0.3);
-    --icons-color: rgb(0, 0, 0, 0.7);
+    /* ========= CORES PRINCIPAIS ========= */
+    --primary: #00f5a0; /* Verde neon principal */
+    --secondary: #00b3ff; /* Azul cian neon */
+    --accent: #a855f7; /* Roxo neon de apoio */
+
+    /* ========= BACKGROUNDS ========= */
+    --background-dark: #0a0f14; /* Preto profundo */
+    --background-dark-2: #0f161d; /* Preto grafite */
+    --background-gradient: linear-gradient(135deg, #0a0f14 0%, #0f161d 100%);
+
+    /* ========= TEXTOS ========= */
+    --text-main: #e6e6e6; /* Texto primário no dark */
+    --text-secondary: #a1a1a1; /* Texto secundário */
+    --text-muted: #6b6b6b;
+
+    /* ========= LINKS ========= */
+    --link-default: #00d2ff;
+    --link-hover: #00f5a0;
+
+    /* ========= BOTÕES ========= */
+    --button-gradient: linear-gradient(135deg, #00f5a0 0%, #00b3ff 100%);
+    --button-gradient-hover: linear-gradient(135deg, #00b3ff 0%, #00f5a0 100%);
+    --button-text: #0a0f14;
+
+    /* ========= BORDAS E LINHAS ========= */
+    --border-color: #1f2a33;
+    --input-border-focus: #00f5a0;
+
+    /* ========= HEADER & FOOTER ========= */
+    --header-background: rgba(10, 15, 20, 0.85); 
+    --footer-background: rgba(10, 15, 20, 0.6);
+
+    /* ========= ICONES ========= */
+    --icon-color: #00e8c6;
+
+    /* ========= ALERTAS ========= */
+    --error-alert: #ff355b; /* vermelho neon */
+    --success-alert: #00f5a0; /* verde neon */
 }
+
 
 * {
     padding: 0;

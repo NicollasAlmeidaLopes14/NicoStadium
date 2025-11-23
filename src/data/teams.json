@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Corinthians",
+        "logo": "../public/assets/imgs/logo-corinthians",
+        "country": "Brasil"
+    },
+    {
+        "id": 2,
+        "name": "Palmeiras",
+        "logo": "../public/assets/imgs/logo-palmeiras",
+        "country": "Brasil"
+    },
+    {
+        "id": 3,
+        "name": "Barcelona",
+        "logo": "../public/assets/imgs/logo-barcelona",
+        "country": "Espanha"
+    },
+    {
+        "id": 4,
+        "name": "Real Madrid",
+        "logo": "../public/assets/imgs/logo-real-madrid",
+        "country": "Espanha"
+    },
+    {
+        "id": 5,
+        "name": "Manchester City",
+        "logo": "../public/assets/imgs/logo-man-city",
+        "country": "Inglaterra"
+    },
+    {
+        "id": 6,
+        "name": "Manchester United",
+        "logo": "../public/assets/imgs/logo-man-united",
+        "country": "Inglaterra"
+    },
+    {
+        "id": 7,
+        "name": "Paris Saint-Germain",
+        "logo": "../public/assets/imgs/logo-psg",
+        "country": "França"
+    },
+    {
+        "id": 8,
+        "name": "Olympique de Marseille",
+        "logo": "../public/assets/imgs/logo-marseille",
+        "country": "França"
+    }
+]
