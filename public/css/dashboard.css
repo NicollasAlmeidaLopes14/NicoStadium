@@ -1,9 +1,9 @@
 body {
-  background-color: #e1e5e8;
+  background: var(--background-gradient);
 }
 
 aside {
-  background-color: var(--nav-dashboard);
+  background-color: var(--header-background);
   position: fixed;
   left: 0;
   top: 0;
@@ -12,6 +12,7 @@ aside {
   height: 100vh;
   padding: 1.2rem;
   align-items: center;
+  border-right: solid 2px var(--primary);
 }
 
 .user_data_container {
@@ -28,12 +29,12 @@ aside {
 #user_name_span {
   font-size: 35px;
   font-weight: bold;
-  color: var(--text-to-dark-background);
+  color: var(--text-main);
 }
 
 #user_email_span {
   font-size: 22px;
-  color: var(--text-to-dark-background);
+  color: var(--text-main);
 }
 
 ul {
@@ -48,7 +49,7 @@ a {
   display: flex;
   gap: 0.5rem;
   text-decoration: none;
-  color: var(--text-to-dark-background);
+  color: var(--primary);
   font-weight: bold;
   align-items: center;
   font-size: 25px;
@@ -60,8 +61,8 @@ a {
 }
 
 a:hover {
-  background-color: var(--text-to-dark-background);
-  color: var(--nav-dashboard);
+  background-color: var(--border-color);
+  color: var(--secondary);
 }
 
 a:active {
@@ -92,14 +93,14 @@ main {
 }
 
 .hit-rate-kpi {
-  background-color: var(--nav-dashboard);
+  background-color: var(--kpi-background);
   border-radius: 15px;
-  border-left: solid 5px var(--text-to-dark-background);
+  border: solid 2px var(--border-color);
   text-align: center;
   width: 250px;
   display: flex;
   flex-direction: column;
-  color: var(--text-to-dark-background);
+  color: var(--text-main);
   gap: 1rem;
   padding: 1rem;
   transition: transform ease 0.3s, box-shadow ease-in-out 0.3s;
@@ -107,7 +108,7 @@ main {
 
 .hit-rate-kpi:hover {
   transform: translateY(-5px);
-  box-shadow: 4px 3px 5px 0px var(--secundary-text);
+  box-shadow: 4px 3px 5px 0px var(--accent);
 }
 
 .kpi-title {
@@ -124,10 +125,10 @@ main {
 
 .guesses-kpi {
   display: flex;
-  background-color: var(--main-background);
+  background-color: var(--kpi-background);
   padding: 1rem;
   border-radius: 15px;
-  border-left: solid 5px var(--nav-dashboard);
+  border: solid 2px var(--border-color);
   gap: 1.5rem;
   align-items: center;
   transition: transform ease 0.3s, box-shadow ease-in-out 0.3s;
@@ -135,7 +136,7 @@ main {
 
 .guesses-kpi:hover {
   transform: translateY(-5px);
-  box-shadow: 4px 3px 5px 0px var(--secundary-text);
+  box-shadow: 4px 3px 5px 0px var(--accent);
 }
 
 .kpi-wrong-guesses-title,
@@ -149,7 +150,7 @@ main {
 }
 
 .right-guess-container {
-  color: var(--nav-dashboard);
+  color: var(--success-alert);
 }
 
 .guesses-kpi div {
@@ -162,7 +163,7 @@ main {
   height: 400px;
   width: 750px;
   text-align: start;
-  background-color: var(--main-background);
+  background-color: var(--kpi-background);
   padding: 2rem 2.5rem 3rem;
   border-radius: 15px;
   position: relative;
@@ -176,7 +177,7 @@ main {
 }
 
 h1 {
-  color: var(--nav-dashboard);
+  color: var(--text-main);
 }
 
 canvas {
@@ -184,9 +185,9 @@ canvas {
 }
 
 .last-guess-container {
-  background-color: var(--main-background);
+  background-color: var(--kpi-background);
+  border: solid 2px var(--border-color);
   height: 90%;
-  /* width: 300px; */
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -196,13 +197,13 @@ canvas {
 }
 
 .match-wrapper {
-  background-color: #ffffff;
+  background-color: var(--background-dark);
+  border: solid 2px var(--border-color);
   display: flex;
   align-items: center;
   padding: 1rem;
   gap: 1rem;
   border-radius: 15px;
-  border-left: solid 5px var(--nav-dashboard);
   transition: transform ease 0.3s, box-shadow ease-in-out 0.3s;
 }
 
@@ -221,7 +222,7 @@ canvas {
 .match-wrapper div span {
   font-size: 35px;
   font-weight: 800;
-  color: var(--main-text);
+  color: var(--text-main);
 }
 
 .palmeiras-logo,
@@ -241,6 +242,6 @@ canvas {
 }
 
 h2 {
-  color: var(--nav-dashboard);
+  color: var(--text-main);
   font-size: 30px;
 }

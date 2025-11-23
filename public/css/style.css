@@ -124,10 +124,12 @@ main {
 
 h1 {
     font-size: 45px;
+    color: var(--text-main);
 }
 
 .text-container p {
-    font-size: 25px
+    font-size: 25px;
+    color: var(--text-main);
 }
 
 .main-buttons-container {
@@ -138,9 +140,9 @@ h1 {
 .comments-button {
     border: none;
     width: 220px;
-    background: var(--gradient-button);
+    background: var(--button-gradient);
     cursor: pointer;
-    color: var(--text-to-dark-background);
+    color: var(--button-text);
     font-size: 22px;
     font-weight: bold;
     padding: 15px 5px;
@@ -149,11 +151,11 @@ h1 {
 }
 
 .games-button {
-    border: solid 2px var(--text-to-dark-background);
+    border: solid 2px var(--accent);
     width: 220px;
     background: transparent;
     cursor: pointer;
-    color: var(--text-to-dark-background);
+    color: var(--accent);
     font-size: 22px;
     font-weight: bold;
     padding: 15px 5px;

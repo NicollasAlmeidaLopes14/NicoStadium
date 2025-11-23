@@ -1,17 +1,24 @@
 :root {
     /* ========= CORES PRINCIPAIS ========= */
-    --primary: #00f5a0; /* Verde neon principal */
-    --secondary: #00b3ff; /* Azul cian neon */
-    --accent: #a855f7; /* Roxo neon de apoio */
+    --primary: #00f5a0;
+    /* Verde neon principal */
+    --secondary: #00b3ff;
+    /* Azul cian neon */
+    --accent: #a855f7;
+    /* Roxo neon de apoio */
 
     /* ========= BACKGROUNDS ========= */
-    --background-dark: #0a0f14; /* Preto profundo */
-    --background-dark-2: #0f161d; /* Preto grafite */
+    --background-dark: #0a0f14;
+    /* Preto profundo */
+    --background-dark-2: #0f161d;
+    /* Preto grafite */
     --background-gradient: linear-gradient(135deg, #0a0f14 0%, #0f161d 100%);
 
     /* ========= TEXTOS ========= */
-    --text-main: #e6e6e6; /* Texto primário no dark */
-    --text-secondary: #a1a1a1; /* Texto secundário */
+    --text-main: #e6e6e6;
+    /* Texto primário no dark */
+    --text-secondary: #a1a1a1;
+    /* Texto secundário */
     --text-muted: #6b6b6b;
 
     /* ========= LINKS ========= */
@@ -28,15 +35,19 @@
     --input-border-focus: #00f5a0;
 
     /* ========= HEADER & FOOTER ========= */
-    --header-background: rgba(10, 15, 20, 0.85); 
+    --header-background: rgba(10, 15, 20, 0.85);
     --footer-background: rgba(10, 15, 20, 0.6);
 
     /* ========= ICONES ========= */
     --icon-color: #00e8c6;
 
+    --kpi-background: #121820;
+
     /* ========= ALERTAS ========= */
-    --error-alert: #ff355b; /* vermelho neon */
-    --success-alert: #00f5a0; /* verde neon */
+    --error-alert: #ff355b;
+    /* vermelho neon */
+    --success-alert: #00f5a0;
+    /* verde neon */
 }
 
 
