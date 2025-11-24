@@ -1,142 +1,90 @@
 [
     {
-        "id": 1,
-        "name": "Corinthians",
-        "logo": "../public/assets/imgs/teams_logo/logo-corinthians.png",
-        "country": "Brasil",
-        "competition": "Libertadores"
+        "Champions": [
+            {
+                "name": "Arsenal",
+                "logo": "../public/assets/imgs/teams_logo/logo-arsenal.png"
+            },
+            {
+                "name": "Barcelona",
+                "logo": "../public/assets/imgs/teams_logo/logo-barcelona.png"
+            },
+            {
+                "name": "Bayern de Munique",
+                "logo": "../public/assets/imgs/teams_logo/logo-bayern.png"
+            },
+            {
+                "name": "Internazionale de Milão",
+                "logo": "../public/assets/imgs/teams_logo/logo-inter-milao.png"
+            },
+            {
+                "name": "Juventus",
+                "logo": "../public/assets/imgs/teams_logo/logo-juventus.png"
+            },
+            {
+                "name": "Liverpool",
+                "logo": "../public/assets/imgs/teams_logo/logo-liverpool.png"
+            },
+            {
+                "name": "Manchester City",
+                "logo": "../public/assets/imgs/teams_logo/logo-man-city.png"
+            },
+            {
+                "name": "Napoli",
+                "logo": "../public/assets/imgs/teams_logo/logo-napoli.png"
+            },
+            {
+                "name": "Paris Saint-Germain",
+                "logo": "../public/assets/imgs/teams_logo/logo-psg.png"
+            },
+            {
+                "name": "Real Madrid",
+                "logo": "../public/assets/imgs/teams_logo/logo-real-madrid.png"
+            }
+        ]
     },
     {
-        "id": 2,
-        "name": "Palmeiras",
-        "logo": "../public/assets/imgs/teams_logo/logo-palmeiras.png",
-        "country": "Brasil",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 3,
-        "name": "Arsenal",
-        "logo": "../public/assets/imgs/teams_logo/logo-arsenal.png",
-        "country": "Inglaterra",
-        "competition": "Champions League"
-    },
-    {
-        "id": 4,
-        "name": "Barcelona",
-        "logo": "../public/assets/imgs/teams_logo/logo-barcelona.png",
-        "country": "Espanha",
-        "competition": "Champions League"
-    },
-    {
-        "id": 5,
-        "name": "Bayern",
-        "logo": "../public/assets/imgs/teams_logo/logo-bayern.png",
-        "country": "Alemanha",
-        "competition": "Champions League"
-    },
-    {
-        "id": 6,
-        "name": "Boca Juniors",
-        "logo": "../public/assets/imgs/teams_logo/logo-boca.png",
-        "country": "Argentina",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 7,
-        "name": "Colo-Colo",
-        "logo": "../public/assets/imgs/teams_logo/logo-colo-colo.png",
-        "country": "Chile",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 8,
-        "name": "Flamengo",
-        "logo": "../public/assets/imgs/teams_logo/logo-flamengo.png",
-        "country": "Brasil",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 9,
-        "name": "Juventus",
-        "logo": "../public/assets/imgs/teams_logo/logo-juventus.png",
-        "country": "Itália",
-        "competition": "Champions League"
-    },
-    {
-        "id": 10,
-        "name": "LDU",
-        "logo": "../public/assets/imgs/teams_logo/logo-ldu.png",
-        "country": "Equador",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 11,
-        "name": "Liverpool",
-        "logo": "../public/assets/imgs/teams_logo/logo-liverpool.png",
-        "country": "Inglaterra",
-        "competition": "Champions League"
-    },
-    {
-        "id": 12,
-        "name": "Manchester City",
-        "logo": "../public/assets/imgs/teams_logo/logo-man-city.png",
-        "country": "Inglaterra",
-        "competition": "Champions League"
-    },
-    {
-        "id": 13,
-        "name": "Peñarol",
-        "logo": "../public/assets/imgs/teams_logo/logo-penarol.png",
-        "country": "Uruguai",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 14,
-        "name": "Paris Saint-Germain",
-        "logo": "../public/assets/imgs/teams_logo/logo-psg.png",
-        "country": "França",
-        "competition": "Champions League"
-    },
-    {
-        "id": 15,
-        "name": "Racing",
-        "logo": "../public/assets/imgs/teams_logo/logo-racing.png",
-        "country": "Argentina",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 16,
-        "name": "Real Madrid",
-        "logo": "../public/assets/imgs/teams_logo/logo-real-madrid.png",
-        "country": "Espanha",
-        "competition": "Champions League"
-    },
-    {
-        "id": 17,
-        "name": "River Plate",
-        "logo": "../public/assets/imgs/teams_logo/logo-river-plate.png",
-        "country": "Brasil",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 18,
-        "name": "São Paulo",
-        "logo": "../public/assets/imgs/teams_logo/logo-sp.png",
-        "country": "Brasil",
-        "competition": "Libertadores"
-    },
-    {
-        "id": 19,
-        "name": "Internazionale de Milão",
-        "logo": "../public/assets/imgs/teams_logo/logo-inter-milao.png",
-        "country": "Itália",
-        "competition": "Champions League"
-    },
-    {
-        "id": 20,
-        "name": "Napoli",
-        "logo": "../public/assets/imgs/teams_logo/logo-napoli.png",
-        "country": "Itália",
-        "competition": "Champions League"
+        "Libertadores": [
+            {
+                "name": "Boca Juniors",
+                "logo": "../public/assets/imgs/teams_logo/logo-boca.png"
+            },
+            {
+                "name": "Colo-colo",
+                "logo": "../public/assets/imgs/teams_logo/logo-colo-colo.png"
+            },
+            {
+                "name": "Corinthians",
+                "logo": "../public/assets/imgs/teams_logo/logo-corinthians.png"
+            },
+            {
+                "name": "Flamengo",
+                "logo": "../public/assets/imgs/teams_logo/logo-flamengo.png"
+            },
+            {
+                "name": "LDU",
+                "logo": "../public/assets/imgs/teams_logo/logo-ldu.png"
+            },
+            {
+                "name": "Palmeiras",
+                "logo": "../public/assets/imgs/teams_logo/logo-palmeiras.png"
+            },
+            {
+                "name": "Peñarol",
+                "logo": "../public/assets/imgs/teams_logo/logo-penarol.png"
+            },
+            {
+                "name": "Racing",
+                "logo": "../public/assets/imgs/teams_logo/logo-racing.png"
+            },
+            {
+                "name": "River Plate",
+                "logo": "../public/assets/imgs/teams_logo/logo-river-plate.png"
+            },
+            {
+                "name": "São Paulo",
+                "logo": "../public/assets/imgs/teams_logo/logo-sp.png"
+            }
+        ]
     }
 ]
