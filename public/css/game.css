@@ -1,5 +1,5 @@
 body {
-    background-image: url('../assets/imgs/fundo-games.png');
+    background: var(--background-gradient);
     background-size: cover;
     padding: 2rem;
 }
