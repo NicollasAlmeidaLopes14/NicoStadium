@@ -1,6 +1,6 @@
 [
     {
-        "Champions": [
+        "champions": [
             {
                 "name": "Arsenal",
                 "logo": "../public/assets/imgs/teams_logo/logo-arsenal.png"
@@ -44,7 +44,7 @@
         ]
     },
     {
-        "Libertadores": [
+        "libertadores": [
             {
                 "name": "Boca Juniors",
                 "logo": "../public/assets/imgs/teams_logo/logo-boca.png"
