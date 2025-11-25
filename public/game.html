@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palpitômetro NicoStadium</title>
-    <link rel="stylesheet" href="../css/game.css">
-    <link rel="stylesheet" href="../css/globalStyles.css">
+    <link rel="stylesheet" href="./css/game.css">
+    <link rel="stylesheet" href="./css/globalStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-<body>
+<body onload="loadTeams()">
     <a href="../dashboard/dashboard.html">
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
         Sair
@@ -19,9 +19,9 @@
     <main>
         <div class="competition-container">
             <div class="teams-card">
-                <img src="../assets/imgs/logo-champions.png" alt="Logo UEFA Champions League" class="competition-logo">
+                <img src="./assets/imgs/logo-champions.png" alt="Logo UEFA Champions League" class="competition-logo">
 
-                <div id="champions_team_container">
+                <div id="champions-team-container">
 
                 </div>
             </div>
@@ -31,9 +31,9 @@
 
         <div class="competition-container">
             <div class="teams-card">
-                <img src="../assets/imgs/logo-libertadores.png" alt="Logo Copa Libertadores" class="competition-logo">
+                <img src="./assets/imgs/logo-libertadores.png" alt="Logo Copa Libertadores" class="competition-logo">
 
-                <div class="teams-logo-container">
+                <div id="teams-logo-container">
 
                 </div>
             </div>
@@ -44,6 +44,4 @@
 </body>
 
 </html>
-<script>
-    
-</script>
+<script src="./js/game.js"></script>

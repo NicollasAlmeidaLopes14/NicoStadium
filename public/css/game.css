@@ -80,8 +80,24 @@ main {
     padding: 1rem;
 }
 
-.teams-logo-container {
-    display: flex;
+#champions-team-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    width: 100%;
+    align-items: center;
+    height: 100%;
+}
+
+#champions-team-container img:not(#chelsea, #barcelona, #arsenal, #liverpool, #real-madrid) {
+    width: 82px;
+}
+
+#chelsea,
+#barcelona,
+#arsenal,
+#liverpool,
+#real-madrid {
+    width: 90px;
 }
 
 button {
