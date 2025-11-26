@@ -9,15 +9,25 @@ function loadTeams() {
                         console.log(data)
 
                         const championsContainer = document.getElementById('champions-team-container')
+                        const libertadoresContainer = document.getElementById('libertadores-teams-container')
 
-                        data[0].champions.forEach(team => {
-                            const image = document.createElement('img')
-                            image.src = team.logo
-                            image.alt = team.name
-                            image.id = team.styleId
-                            image.classList.add('champions-team-logo')
+                        data[0].champions.forEach(championsTeam => {
+                            const championsTeamImage = document.createElement('img')
+                            championsTeamImage.src = championsTeam.logo
+                            championsTeamImage.alt = championsTeam.name
+                            championsTeamImage.id = championsTeam.styleId
+                            championsTeamImage.classList.add('champions-team-logo')
 
-                            championsContainer.appendChild(image)
+                            championsContainer.appendChild(championsTeamImage)
+                        });
+
+                        data[1].libertadores.forEach(libertadoresTeam => {
+                            const libertadoresTeamImage = document.createElement('img')
+                            libertadoresTeamImage.src = libertadoresTeam.logo
+                            libertadoresTeamImage.alt = libertadoresTeam.name
+                            libertadoresTeamImage.id = libertadoresTeam.styleId
+
+                            libertadoresContainer.appendChild(libertadoresTeamImage)
                         });
                     })
             } else {
