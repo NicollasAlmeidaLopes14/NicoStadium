@@ -138,11 +138,10 @@ dialog {
     background-color: #393e46;
     border: solid 2px var(--primary);
     width: 50%;
-    height: 50%;
     left: 25%;
     top: -330px;
     position: fixed;
-    transition: top  1s ease-in-out ;
+    transition: top 1s ease-in-out;
 }
 
 dialog h1 {
@@ -157,11 +156,35 @@ dialog h1 {
     width: 100%;
 }
 
-.dialog-container div {
+.home-team-container,
+.visiting-team-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+}
+
+.scoreboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.scoreboard {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%;
+    width: 120%;
+    margin-top: 20px;
+    color: var(--text-main);
+}
+
+#home-team-goals, #visiting-team-goals {
+    font-size: 72px;
+    font-weight: bold;
 }
 
 #show-result-button {
