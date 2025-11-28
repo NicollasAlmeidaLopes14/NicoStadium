@@ -126,7 +126,6 @@ button:hover {
     position: fixed;
     top: 0;
     background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
-    /* transition: visibility 1s ease-in-out; */
 }
 
 dialog {
@@ -163,4 +162,8 @@ dialog h1 {
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+}
+
+#show-result-button {
+    margin-top: 1.2rem;
 }
