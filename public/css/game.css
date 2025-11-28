@@ -90,7 +90,7 @@ main {
 }
 
 #champions-team-container img:not(#chelsea, #barcelona, #arsenal, #liverpool, #real-madrid),
-#libertadores-teams-container img{
+#libertadores-teams-container img {
     width: 82px;
 }
 
@@ -112,15 +112,55 @@ button {
     font-size: 22px;
     width: 200px;
     cursor: pointer;
-    transition: all ease 0.3s;
 }
 
 button:hover {
-    transform: translateY(-5px);
     background: var(--button-gradient-hover);
+    transition: 0.5s;
 }
 
-button:active {
-    opacity: 0.7;
-    transform: translateY(0);
+#mask {
+    visibility: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.7) 50%, rgba(10, 12, 16, 0.99) 85%);
+    /* transition: visibility 1s ease-in-out; */
+}
+
+dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: #393e46;
+    border: solid 2px var(--primary);
+    width: 50%;
+    height: 50%;
+    left: 25%;
+    top: -330px;
+    position: fixed;
+    transition: top  1s ease-in-out ;
+}
+
+dialog h1 {
+    color: var(--primary);
+}
+
+.dialog-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+
+.dialog-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }

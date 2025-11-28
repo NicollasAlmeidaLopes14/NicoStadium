@@ -4,61 +4,71 @@
             {
                 "name": "Arsenal",
                 "logo": "../assets/imgs/teams_logo/logo-arsenal.png",
-                "styleId": "arsenal"
+                "styleId": "arsenal",
+                "nickName": "Arsenal"
                 
             },
             {
                 "name": "Barcelona",
                 "logo": "../assets/imgs/teams_logo/logo-barcelona.png",
-                "styleId": "barcelona"
+                "styleId": "barcelona",
+                "nickName": "Barcelona"
                 
             },
             {
                 "name": "Bayern de Munique",
                 "logo": "../assets/imgs/teams_logo/logo-bayern.png",
-                "styleId": "bayern"
+                "styleId": "bayern",
+                "nickName": "Bayern"
                 
             },
             {
                 "name": "Chelsea",
                 "logo": "../assets/imgs/teams_logo/logo-chelsea.png",
-                "styleId": "chelsea"
+                "styleId": "chelsea",
+                "nickName": "Chelsea"
                 
             },
             {
                 "name": "Internazionale de Milão",
                 "logo": "../assets/imgs/teams_logo/logo-inter-milao.png",
-                "styleId": "inter"
+                "styleId": "inter",
+                "nickName": "Inter de Milão"
                 
             },
             {
                 "name": "Liverpool",
                 "logo": "../assets/imgs/teams_logo/logo-liverpool.png",
-                "styleId": "liverpool"
+                "styleId": "liverpool",
+                "nickName": "Liverpool"
                 
             },
             {
                 "name": "Manchester City",
                 "logo": "../assets/imgs/teams_logo/logo-man-city.png",
-                "styleId": "city"
+                "styleId": "city",
+                "nickName": "Mancester City"
                 
             },
             {
                 "name": "Napoli",
                 "logo": "../assets/imgs/teams_logo/logo-napoli.png",
-                "styleId": "napoli"
+                "styleId": "napoli",
+                "nickName": "Napoli"
                 
             },
             {
                 "name": "Paris Saint-Germain",
                 "logo": "../assets/imgs/teams_logo/logo-psg.png",
-                "styleId": "psg"
+                "styleId": "psg",
+                "nickName": "PSG"
                 
             },
             {
                 "name": "Real Madrid",
                 "logo": "../assets/imgs/teams_logo/logo-real-madrid.png",
-                "styleId": "real-madrid"
+                "styleId": "real-madrid",
+                "nickName": "Real Madrid"
                 
             }
         ]
@@ -68,62 +78,62 @@
             {
                 "name": "Boca Juniors",
                 "logo": "../assets/imgs/teams_logo/logo-boca.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "Colo-colo",
                 "logo": "../assets/imgs/teams_logo/logo-colo-colo.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "Corinthians",
                 "logo": "../assets/imgs/teams_logo/logo-corinthians.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "Flamengo",
                 "logo": "../assets/imgs/teams_logo/logo-flamengo.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "LDU",
                 "logo": "../assets/imgs/teams_logo/logo-ldu.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "Palmeiras",
                 "logo": "../assets/imgs/teams_logo/logo-palmeiras.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "Peñarol",
                 "logo": "../assets/imgs/teams_logo/logo-penarol.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "Racing",
                 "logo": "../assets/imgs/teams_logo/logo-racing.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "River Plate",
                 "logo": "../assets/imgs/teams_logo/logo-river-plate.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             },
             {
                 "name": "São Paulo",
                 "logo": "../assets/imgs/teams_logo/logo-sp.png",
-                "styleId": ""
-                
+                "styleId": "",
+                "nickName":"Arsenal"
             }
         ]
     }

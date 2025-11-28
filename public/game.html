@@ -11,6 +11,8 @@
 </head>
 
 <body onload="loadTeams()">
+    <div id="mask" onclick="disappearMask()"></div>
+
     <a href="../dashboard/dashboard.html">
         <i class="fa-solid fa-arrow-right-from-bracket"></i>
         Sair
@@ -26,7 +28,7 @@
                 </div>
             </div>
 
-            <button>Gerar Confronto</button>
+            <button id="clash-button-champions" onclick="generateClash('champions')">Gerar Confronto</button>
         </div>
 
         <div class="competition-container">
@@ -38,9 +40,30 @@
                 </div>
             </div>
 
-            <button onclick="">Gerar Confronto</button>
+            <button id="clash-button-libertadores" onclick="generateClash('libertadores')">Gerar Confronto</button>
         </div>
     </main>
+
+    <dialog id="generator-box">
+        <h1>Confronto gerado!</h1>
+
+        <div class="dialog-container">
+            <div>
+                <img src="" alt="" style="width: 100px;" id="home-team-logo">
+                <button id="home-team-button"></button>
+            </div>
+
+            <div>
+                <img src="./assets/imgs/versus.png" alt="" style="width: 100px; height: fit-content;">
+                <button>Empate</button>
+            </div>
+
+            <div>
+                <img src="" alt="" style="width: 100px;" id="visiting-team-logo">
+                <button id="visiting-team-button"></button>
+            </div>
+        </div>
+    </dialog>
 </body>
 
 </html>
