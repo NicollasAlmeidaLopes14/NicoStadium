@@ -5,6 +5,15 @@ const showResultButton = document.getElementById('show-result-button')
 const gameMask = document.getElementById('mask')
 const generatorBox = document.getElementById('generator-box')
 
+const homeTeamButton = document.getElementById('home-team-button')
+const visitingTeamButton = document.getElementById('visiting-team-button')
+const drawButton = document.getElementById('draw-button')
+
+const homeTeamGoalsSpan = document.getElementById('home-team-goals')
+const visitingTeamGoalsSpan = document.getElementById('visiting-team-goals')
+
+const generatorBoxTitle = document.getElementById('generator-box-title')
+
 
 function loadTeams() {
     fetch('/data/teams.json').then(function (response) {
@@ -78,7 +87,7 @@ function generateClash(competition) {
 
         gameMask.style.visibility = 'visible'
         generatorBox.style.top = '25%'
-
+        generatorBoxTitle.innerHTML = 'Confronto gerado!'
 
     } else {
         fetch('/data/teams.json').then((response => {
@@ -110,6 +119,7 @@ function generateClash(competition) {
 
         gameMask.style.visibility = 'visible'
         generatorBox.style.top = '25%'
+        generatorBoxTitle.innerHTML = 'Confronto gerado!'
     }
 }
 
@@ -141,9 +151,30 @@ function userChoice(choice) {
     }
 }
 
+function generateResult() {
+    const homeGoals = Math.floor(Math.random() * 6)
+    const visitingGoals = Math.floor(Math.random() * 6)
+
+    if (homeTeamButton.classList.contains('selected-button') && homeGoals > visitingGoals) {
+        generatorBoxTitle.innerHTML = 'Você acertou!'
+    } else if (visitingTeamButton.classList.contains('selected-button') && visitingGoals > homeGoals) {
+        generatorBoxTitle.innerHTML = 'Você acertou!'
+    } else if (drawButton.classList.contains('selected-button') && homeGoals === visitingGoals) {
+        generatorBoxTitle.innerHTML = 'Você acertou!'
+    } else {
+        generatorBoxTitle.innerHTML = 'Você errou!'
+    }
+
+    homeTeamGoalsSpan.innerHTML = homeGoals
+    visitingTeamGoalsSpan.innerHTML = visitingGoals
+}
+
 function disappearMask() {
     gameMask.style.visibility = 'hidden'
     generatorBox.style.top = '-330px'
+
+
+    initialSettings()
 }
 
 function disableResultButton() {
@@ -154,4 +185,14 @@ function disableResultButton() {
 function enableResultButton() {
     showResultButton.disabled = false
     showResultButton.classList.remove('disabled-button')
+}
+
+function initialSettings() {
+    homeTeamGoalsSpan.innerHTML = '?'
+    visitingTeamGoalsSpan.innerHTML = '?'
+    generatorBoxTitle.innerHTML = 'Gere o confronto!'
+    visitingTeamButton.classList.remove('selected-button')
+    homeTeamButton.classList.remove('selected-button')
+    drawButton.classList.remove('selected-button')
+    disableResultButton()
 }
