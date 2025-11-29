@@ -113,6 +113,34 @@ function generateClash(competition) {
     }
 }
 
+// const userChoicesList = []
+
+function userChoice(choice) {
+    const homeTeamButton = document.getElementById('home-team-button')
+    const visitingTeamButton = document.getElementById('visiting-team-button')
+    const drawButton = document.getElementById('draw-button')
+
+    if (choice === 'homeTeam') {
+        homeTeamButton.classList.add('selected-button')
+        visitingTeamButton.classList.remove('selected-button')
+        drawButton.classList.remove('selected-button')
+
+        enableResultButton()
+    } else if (choice === 'draw') {
+        drawButton.classList.add('selected-button')
+        homeTeamButton.classList.remove('selected-button')
+        visitingTeamButton.classList.remove('selected-button')
+
+        enableResultButton()
+    } else {
+        visitingTeamButton.classList.add('selected-button')
+        homeTeamButton.classList.remove('selected-button')
+        drawButton.classList.remove('selected-button')
+
+        enableResultButton()
+    }
+}
+
 function disappearMask() {
     gameMask.style.visibility = 'hidden'
     generatorBox.style.top = '-330px'
@@ -120,6 +148,10 @@ function disappearMask() {
 
 function disableResultButton() {
     showResultButton.disabled = true
-    showResultButton.style.background = '#d3d3d3'
-    showResultButton.style.cursor = 'not-allowed'
+    showResultButton.classList.add('disabled-button')
+}
+
+function enableResultButton() {
+    showResultButton.disabled = false
+    showResultButton.classList.remove('disabled-button')
 }

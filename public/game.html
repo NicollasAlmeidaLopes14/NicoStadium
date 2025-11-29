@@ -50,7 +50,7 @@
         <div class="dialog-container">
             <div class="home-team-container">
                 <img src="" alt="" style="width: 100px;" id="home-team-logo">
-                <button id="home-team-button"></button>
+                <button id="home-team-button" onclick="userChoice('homeTeam')"></button>
             </div>
 
             <div class="scoreboard-container">
@@ -60,12 +60,12 @@
                     <span id="visiting-team-goals">?</span>
                 </div>
 
-                <button>Empate</button>
+                <button onclick="userChoice('draw')" id="draw-button">Empate</button>
             </div>
 
             <div class="visiting-team-container">
                 <img src="" alt="" style="width: 100px;" id="visiting-team-logo">
-                <button id="visiting-team-button"></button>
+                <button id="visiting-team-button" onclick="userChoice('visitingTeam')"></button>
             </div>
         </div>
 

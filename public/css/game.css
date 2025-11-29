@@ -119,6 +119,25 @@ button:hover {
     transition: 0.5s;
 }
 
+.disabled-button {
+    cursor: not-allowed;
+    background: #d3d3d3;
+}
+
+.disabled-button:hover {
+    background: #d3d3d3;
+}
+
+.selected-button {
+    background: var(--secondary);
+    color: #ffffff;
+}
+
+.selected-button:hover {
+    background: var(--secondary);
+    color: #ffffff;
+}
+
 #mask {
     visibility: hidden;
     width: 100vw;
@@ -182,7 +201,8 @@ dialog h1 {
     color: var(--text-main);
 }
 
-#home-team-goals, #visiting-team-goals {
+#home-team-goals,
+#visiting-team-goals {
     font-size: 72px;
     font-weight: bold;
 }
