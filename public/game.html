@@ -50,7 +50,7 @@
         <div class="dialog-container">
             <div class="home-team-container">
                 <img src="" alt="" style="width: 100px;" id="home-team-logo">
-                <button id="home-team-button" onclick="userChoice('homeTeam')"></button>
+                <button id="home-team-button" class="hide-button" onclick="userChoice('homeTeam')"></button>
             </div>
 
             <div class="scoreboard-container">
@@ -60,16 +60,28 @@
                     <span id="visiting-team-goals">?</span>
                 </div>
 
-                <button onclick="userChoice('draw')" id="draw-button">Empate</button>
+                <button onclick="userChoice('draw')" id="draw-button" class="hide-button">Empate</button>
             </div>
 
             <div class="visiting-team-container">
                 <img src="" alt="" style="width: 100px;" id="visiting-team-logo">
-                <button id="visiting-team-button" onclick="userChoice('visitingTeam')"></button>
+                <button id="visiting-team-button" class="hide-button" onclick="userChoice('visitingTeam')"></button>
             </div>
         </div>
 
-        <button id="show-result-button" onclick="generateResult()">Ver resultado</button>
+        <button id="show-result-button" class="hide-button" onclick="generateResult()">Ver resultado</button>
+
+        <button id="new-clash-button" onclick="generateNewClash()">Novo confronto</button>
+
+        <div id="new-clash-button-container">
+            <button onclick="generateClash('champions') ; initialSettings('newGuess')" class="competition-button">
+                Champions
+            </button>
+
+            <button onclick="generateClash('libertadores') ; initialSettings('newGuess')" class="competition-button">
+                Libertadores
+            </button>
+        </div>
     </dialog>
 </body>
 

@@ -14,6 +14,11 @@ const visitingTeamGoalsSpan = document.getElementById('visiting-team-goals')
 
 const generatorBoxTitle = document.getElementById('generator-box-title')
 
+const guessContainer = document.querySelector('.dialog-container')
+
+const hideButton = document.querySelectorAll('.hide-button')
+
+const newClashButton = document.getElementById('new-clash-button')
 
 function loadTeams() {
     fetch('/data/teams.json').then(function (response) {
@@ -85,10 +90,6 @@ function generateClash(competition) {
             }
         })
 
-        gameMask.style.visibility = 'visible'
-        generatorBox.style.top = '25%'
-        generatorBoxTitle.innerHTML = 'Confronto gerado!'
-
     } else {
         fetch('/data/teams.json').then((response => {
             if (response.ok) {
@@ -116,14 +117,13 @@ function generateClash(competition) {
 
             }
         }))
-
-        gameMask.style.visibility = 'visible'
-        generatorBox.style.top = '25%'
-        generatorBoxTitle.innerHTML = 'Confronto gerado!'
     }
-}
 
-// const userChoicesList = []
+    guessContainer.style.display = 'flex'
+    gameMask.style.visibility = 'visible'
+    generatorBox.style.top = '25%'
+    generatorBoxTitle.innerHTML = 'Confronto gerado!'
+}
 
 function userChoice(choice) {
     const homeTeamButton = document.getElementById('home-team-button')
@@ -167,12 +167,24 @@ function generateResult() {
 
     homeTeamGoalsSpan.innerHTML = homeGoals
     visitingTeamGoalsSpan.innerHTML = visitingGoals
+    hideButton.forEach(button => {
+        button.style.display = 'none'
+    })
+    newClashButton.style.display = 'block'
+
+    console.log('Botão clicado!')
+}
+
+function generateNewClash() {
+    const competitionOptions = document.getElementById('new-clash-button-container')
+
+    competitionOptions.style.display = 'flex'
+    newClashButton.style.display = 'none'
 }
 
 function disappearMask() {
     gameMask.style.visibility = 'hidden'
     generatorBox.style.top = '-330px'
-
 
     initialSettings()
 }
@@ -187,12 +199,26 @@ function enableResultButton() {
     showResultButton.classList.remove('disabled-button')
 }
 
-function initialSettings() {
+function initialSettings(situation) {
+    const competitionOptions = document.getElementById('new-clash-button-container')
+
+    if (situation === 'newGuess') {
+        generatorBoxTitle.innerHTML = 'Novo confronto gerado!'
+        guessContainer.style.display = 'flex'
+        hideButton.forEach(button => {
+            button.style.display = 'block'
+        })
+    } else {
+        generatorBoxTitle.innerHTML = 'Gere o confronto!'
+        guessContainer.style.display = 'none'
+    }
+
     homeTeamGoalsSpan.innerHTML = '?'
     visitingTeamGoalsSpan.innerHTML = '?'
-    generatorBoxTitle.innerHTML = 'Gere o confronto!'
     visitingTeamButton.classList.remove('selected-button')
     homeTeamButton.classList.remove('selected-button')
     drawButton.classList.remove('selected-button')
+    competitionOptions.style.display = 'none'
+
     disableResultButton()
 }
