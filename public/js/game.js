@@ -1,34 +1,36 @@
 
-const generateClashChampionsButton = document.getElementById('clash-button-champions')
-const generateClashLibertadoresButton = document.getElementById('clash-button-libertadores')
-const showResultButton = document.getElementById('show-result-button')
-const gameMask = document.getElementById('mask')
-const generatorBox = document.getElementById('generator-box')
+var generateClashChampionsButton = document.getElementById('clash-button-champions')
+var generateClashLibertadoresButton = document.getElementById('clash-button-libertadores')
+var showResultButton = document.getElementById('show-result-button')
+var gameMask = document.getElementById('mask')
+var generatorBox = document.getElementById('generator-box')
 
-const homeTeamButton = document.getElementById('home-team-button')
-const visitingTeamButton = document.getElementById('visiting-team-button')
-const drawButton = document.getElementById('draw-button')
+var homeTeamButton = document.getElementById('home-team-button')
+var visitingTeamButton = document.getElementById('visiting-team-button')
+var drawButton = document.getElementById('draw-button')
 
-const homeTeamGoalsSpan = document.getElementById('home-team-goals')
-const visitingTeamGoalsSpan = document.getElementById('visiting-team-goals')
+var homeTeamGoalsSpan = document.getElementById('home-team-goals')
+var visitingTeamGoalsSpan = document.getElementById('visiting-team-goals')
 
-const generatorBoxTitle = document.getElementById('generator-box-title')
+var generatorBoxTitle = document.getElementById('generator-box-title')
 
-const guessContainer = document.querySelector('.dialog-container')
+var guessContainer = document.querySelector('.dialog-container')
 
-const hideButton = document.querySelectorAll('.hide-button')
+var hideButton = document.querySelectorAll('.hide-button')
 
-const newClashButton = document.getElementById('new-clash-button')
+var newClashButton = document.getElementById('new-clash-button')
+
+var competitionName = ''
 
 function loadTeams() {
     fetch('/data/teams.json').then(function (response) {
         if (response.ok) {
             response.json().then(data => {
-                const championsContainer = document.getElementById('champions-team-container')
-                const libertadoresContainer = document.getElementById('libertadores-teams-container')
+                var championsContainer = document.getElementById('champions-team-container')
+                var libertadoresContainer = document.getElementById('libertadores-teams-container')
 
                 data[0].champions.forEach(championsTeam => {
-                    const championsTeamImage = document.createElement('img')
+                    var championsTeamImage = document.createElement('img')
                     championsTeamImage.src = championsTeam.logo
                     championsTeamImage.alt = championsTeam.name
                     championsTeamImage.id = championsTeam.styleId
@@ -38,7 +40,7 @@ function loadTeams() {
                 });
 
                 data[1].libertadores.forEach(libertadoresTeam => {
-                    const libertadoresTeamImage = document.createElement('img')
+                    var libertadoresTeamImage = document.createElement('img')
                     libertadoresTeamImage.src = libertadoresTeam.logo
                     libertadoresTeamImage.alt = libertadoresTeam.name
                     libertadoresTeamImage.id = libertadoresTeam.styleId
@@ -55,32 +57,33 @@ function loadTeams() {
 
 
 function generateClash(competition) {
-    const homeTeamLogo = document.getElementById('home-team-logo')
-    const visitingTeamLogo = document.getElementById('visiting-team-logo')
-    const homeTeamButton = document.getElementById('home-team-button')
-    const visitingTeamButton = document.getElementById('visiting-team-button')
+    var homeTeamLogo = document.getElementById('home-team-logo')
+    var visitingTeamLogo = document.getElementById('visiting-team-logo')
+    var homeTeamButton = document.getElementById('home-team-button')
+    var visitingTeamButton = document.getElementById('visiting-team-button')
 
-    const firstRandomTeam = Math.floor(Math.random() * 10)
-    const secondRandomTeam = Math.floor(Math.random() * 9)
+    var firstRandomTeam = Math.floor(Math.random() * 10)
+    var secondRandomTeam = Math.floor(Math.random() * 9)
 
     if (competition === 'champions') {
         fetch('/data/teams.json').then((response) => {
             if (response.ok) {
                 response.json().then(data => {
+                    var homeTeam = data[0].champions[firstRandomTeam]
 
-                    const homeTeam = data[0].champions[firstRandomTeam]
-
-                    const newData = data[0].champions.filter(updatedData => {
+                    var newData = data[0].champions.filter(updatedData => {
                         return updatedData != homeTeam
                     })
 
-                    const visitingTeam = newData[secondRandomTeam]
+                    var visitingTeam = newData[secondRandomTeam]
 
                     homeTeamLogo.src = homeTeam.logo
                     homeTeamButton.innerText = homeTeam.nickName
 
                     visitingTeamLogo.src = visitingTeam.logo
                     visitingTeamButton.innerText = visitingTeam.nickName
+
+                    competitionName = 'Champions League'
 
                     disableResultButton()
                 })
@@ -94,21 +97,23 @@ function generateClash(competition) {
         fetch('/data/teams.json').then((response => {
             if (response.ok) {
                 response.json().then(data => {
-                    const homeTeam = data[1].libertadores[firstRandomTeam]
+                    var homeTeam = data[1].libertadores[firstRandomTeam]
 
-                    const newData = data[1].libertadores.filter(updatedData => {
+                    var newData = data[1].libertadores.filter(updatedData => {
                         return updatedData != homeTeam
                     })
 
                     console.log(newData)
 
-                    const visitingTeam = newData[secondRandomTeam]
+                    var visitingTeam = newData[secondRandomTeam]
 
                     homeTeamLogo.src = homeTeam.logo
                     homeTeamButton.innerText = homeTeam.name
 
                     visitingTeamLogo.src = visitingTeam.logo
                     visitingTeamButton.innerText = visitingTeam.name
+
+                    competitionName = 'Libertadores'
 
                     disableResultButton()
                 })
@@ -126,9 +131,9 @@ function generateClash(competition) {
 }
 
 function userChoice(choice) {
-    const homeTeamButton = document.getElementById('home-team-button')
-    const visitingTeamButton = document.getElementById('visiting-team-button')
-    const drawButton = document.getElementById('draw-button')
+    var homeTeamButton = document.getElementById('home-team-button')
+    var visitingTeamButton = document.getElementById('visiting-team-button')
+    var drawButton = document.getElementById('draw-button')
 
     if (choice === 'homeTeam') {
         homeTeamButton.classList.add('selected-button')
@@ -152,8 +157,11 @@ function userChoice(choice) {
 }
 
 function generateResult() {
-    const homeGoals = Math.floor(Math.random() * 6)
-    const visitingGoals = Math.floor(Math.random() * 6)
+    var homeGoals = Math.floor(Math.random() * 6)
+    var visitingGoals = Math.floor(Math.random() * 6)
+
+    var result = ''
+    // var userGuess = ''
 
     if (homeTeamButton.classList.contains('selected-button') && homeGoals > visitingGoals) {
         generatorBoxTitle.innerHTML = 'Você acertou!'
@@ -165,6 +173,22 @@ function generateResult() {
         generatorBoxTitle.innerHTML = 'Você errou!'
     }
 
+    if (homeGoals > visitingGoals) {
+        result = homeTeamButton.innerText
+    } else if (visitingGoals > homeGoals) {
+        result = visitingTeamButton.innerText
+    } else {
+        result = drawButton.innerText
+    }
+
+    // if (homeTeamButton.classList.contains('selected-button')) {
+    //     userGuess = homeTeamButton.innerText
+    // } else if (visitingTeamButton.classList.contains('selected-button')) {
+    //     userGuess = visitingTeamButton.innerText
+    // } else {
+    //     userGuess = drawButton.innerText
+    // }
+
     homeTeamGoalsSpan.innerHTML = homeGoals
     visitingTeamGoalsSpan.innerHTML = visitingGoals
     hideButton.forEach(button => {
@@ -172,11 +196,30 @@ function generateResult() {
     })
     newClashButton.style.display = 'block'
 
-    console.log('Botão clicado!')
+    fetch("/game/partida", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            homeTeamNameServer: homeTeamButton.innerText,
+            visitingTeamNameServer: visitingTeamButton.innerText,
+            competitionServer: competitionName,
+            resultServer: result
+        })
+    }).then(function (response) {
+        if (response.ok) {
+            console.log('Deu certo!')
+        } else {
+            throw new Error("Houve um erro ao tentar inserir o resultado no banco");
+        }
+    }).catch(function (response) {
+        console.log(`#ERRO: ${response}`)
+    })
 }
 
 function generateNewClash() {
-    const competitionOptions = document.getElementById('new-clash-button-container')
+    var competitionOptions = document.getElementById('new-clash-button-container')
 
     competitionOptions.style.display = 'flex'
     newClashButton.style.display = 'none'
@@ -200,7 +243,7 @@ function enableResultButton() {
 }
 
 function initialSettings(situation) {
-    const competitionOptions = document.getElementById('new-clash-button-container')
+    var competitionOptions = document.getElementById('new-clash-button-container')
 
     if (situation === 'newGuess') {
         generatorBoxTitle.innerHTML = 'Novo confronto gerado!'
