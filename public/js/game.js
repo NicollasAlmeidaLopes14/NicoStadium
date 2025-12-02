@@ -22,6 +22,11 @@ var newClashButton = document.getElementById('new-clash-button')
 
 var competitionName = ''
 
+var userId = sessionStorage.getItem('ID_USUARIO')
+var newMatchId
+var newGuessId
+
+
 function loadTeams() {
     fetch('/data/teams.json').then(function (response) {
         if (response.ok) {
@@ -156,12 +161,11 @@ function userChoice(choice) {
     }
 }
 
-function generateResult() {
+async function generateResult() {
     var homeGoals = Math.floor(Math.random() * 6)
     var visitingGoals = Math.floor(Math.random() * 6)
 
     var result = ''
-    // var userGuess = ''
 
     if (homeTeamButton.classList.contains('selected-button') && homeGoals > visitingGoals) {
         generatorBoxTitle.innerHTML = 'Você acertou!'
@@ -181,14 +185,6 @@ function generateResult() {
         result = drawButton.innerText
     }
 
-    // if (homeTeamButton.classList.contains('selected-button')) {
-    //     userGuess = homeTeamButton.innerText
-    // } else if (visitingTeamButton.classList.contains('selected-button')) {
-    //     userGuess = visitingTeamButton.innerText
-    // } else {
-    //     userGuess = drawButton.innerText
-    // }
-
     homeTeamGoalsSpan.innerHTML = homeGoals
     visitingTeamGoalsSpan.innerHTML = visitingGoals
     hideButton.forEach(button => {
@@ -196,12 +192,29 @@ function generateResult() {
     })
     newClashButton.style.display = 'block'
 
-    fetch("/game/partida", {
+
+    const response = await fetch(`/game/ultimaPartida/${userId}`)
+
+    if (response.ok) {
+        const data = await response.json()
+
+        // console.log(response.json())
+
+        if (data && data.idPartidaGerada) {
+            newMatchId = data.idPartidaGerada + 1
+        } else {
+            newMatchId = 1
+        }
+    }
+
+    fetch('/game/partida', {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
+            matchIdServer: newMatchId,
+            userIdServer: userId,
             homeTeamNameServer: homeTeamButton.innerText,
             visitingTeamNameServer: visitingTeamButton.innerText,
             competitionServer: competitionName,
@@ -212,6 +225,52 @@ function generateResult() {
             console.log('Deu certo!')
         } else {
             throw new Error("Houve um erro ao tentar inserir o resultado no banco");
+        }
+    }).catch(function (response) {
+        console.log(`#ERRO: ${response}`)
+    })
+
+    userPrediction()
+}
+
+async function userPrediction() {
+    var userGuess = ''
+
+    if (homeTeamButton.classList.contains('selected-button')) {
+        userGuess = homeTeamButton.innerText
+    } else if (visitingTeamButton.classList.contains('selected-button')) {
+        userGuess = visitingTeamButton.innerText
+    } else {
+        userGuess = drawButton.innerText
+    }
+
+    const response = await fetch(`/game/ultimoPalpite/${userId}`)
+    if (response.ok) {
+        const data = await response.json()
+
+        if (data && data.idUsuario) {
+            newGuessId = data.idPalpite + 1
+        } else {
+            newGuessId = 1
+        }
+    }
+
+    fetch('/game/palpite', {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            guessIdServer: newGuessId,
+            userIdServer: userId,
+            matchIdServer: newMatchId,
+            userGuessServer: userGuess
+        })
+    }).then(function (response) {
+        if (response.ok) {
+            console.log('Deu certo! Palpite inserido no banco')
+        } else {
+            throw new Error("Houver um erro ao tentar inserir o palpite no banco");
         }
     }).catch(function (response) {
         console.log(`#ERRO: ${response}`)
