@@ -27,13 +27,13 @@ aside {
 }
 
 #user_name_span {
-  font-size: 35px;
+  font-size: 22px;
   font-weight: bold;
   color: var(--text-main);
 }
 
 #user_email_span {
-  font-size: 22px;
+  font-size: 18px;
   color: var(--text-main);
 }
 
@@ -72,7 +72,7 @@ a:active {
 main {
   display: flex;
   align-items: center;
-  padding-left: 12rem;
+  padding-left: 18rem;
   height: 100vh;
   justify-content: space-evenly;
 }

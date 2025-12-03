@@ -10,27 +10,21 @@
     <link rel="stylesheet" href="../css/dashboard.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/dashboard.js"></script>
 </head>
 
-<body>
+<body onload="loadPage(), dynamicDash()">
     <aside>
         <div class="user_data_container">
             <img src="../assets/imgs/bola-de-futebol.png" alt="" id="user_picture">
 
-            <span id="user_name_span">Usuário</span>
+            <span id="user_name_span"></span>
 
-            <span id="user_email_span">usuario@email.com</span>
+            <span id="user_email_span"></span>
         </div>
 
         <nav>
             <ul>
-                <li>
-                    <a href="">
-                        <i class="fa-solid fa-house"></i>
-                        Início
-                    </a>
-                </li>
-
                 <li>
                     <a href="">
                         <i class="fa-solid fa-user"></i>
@@ -62,20 +56,20 @@
                 <div class="hit-rate-kpi">
                     <span class="kpi-title">Aproveitamento</span>
 
-                    <span id="utilization_rate_span">80%</span>
+                    <span id="utilization_rate_span"></span>
                 </div>
 
                 <div class="guesses-kpi">
                     <div class="wrong_guess_container">
                         <span class="kpi-wrong-guesses-title">Palpites errados</span>
 
-                        <span id="wrong_guess_span">02</span>
+                        <span id="wrong_guess_span"></span>
                     </div>
 
                     <div class="right-guess-container">
                         <span class="kpi-right-guesses-title">Palpites certos</span>
 
-                        <span id="right_guess_span">08</span>
+                        <span id="right_guess_span"></span>
                     </div>
                 </div>
             </div>
@@ -137,26 +131,58 @@
 
 </html>
 <script>
-    const ctx = document.getElementById('nicoStadiumChart');
+    var labels = []
+    var values = []
 
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['20-11-2025 20:06', '20-11-2025 20:10', '20-11-2025 20:12', '20-11-2025 20:26', '20-11-2025 20:28', '20-11-2025 20:30'],
-            datasets: [{
-                label: 'Aproveitamento nos palpites',
-                data: [100, 80, 65, 70, 72, 80],
-                borderColor: '#2DBB57',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+    function dynamicDash() {
+        var userId = sessionStorage.ID_USUARIO
+
+        fetch(`/dashboard/dados/${userId}`).then(response => {
+            if (response.ok) {
+                console.log('Dados Dash')
+                response.json().then(data => {
+                    console.log(data)
+
+                    var rights = 0
+                    var total = 0
+
+                    data.forEach((registration, index) => {
+                        total++
+
+                        if (registration.Acerto === 1) {
+                            rights++
+                        }
+
+                        const performance = (rights / total) * 100
+
+                        labels.push(`Partida ${index + 1}`)
+                        values.push(performance.toFixed(0))
+                    });
+                })
+            }
+        })
+
+        const ctx = document.getElementById('nicoStadiumChart');
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Aproveitamento %',
+                    data: values,
+                    borderColor: '#2DBB57',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 
 </script>
